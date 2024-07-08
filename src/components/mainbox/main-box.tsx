@@ -5,6 +5,11 @@ import { fetchAllStarships, fetchSearchedStarships } from '../../api/api';
 import StarshipList from '../starship-list/StarhipList';
 import classNames from 'classnames';
 import Spinner from '../spinner/spinner';
+
+type ButtonEvent =
+  | React.MouseEvent<HTMLButtonElement>
+  | React.KeyboardEvent<HTMLButtonElement>;
+
 interface MainBoxState {
   starhips: Starship[];
   search: string;
@@ -28,7 +33,10 @@ export default class MainBox extends Component<object, MainBoxState> {
     this.setState({ search });
   }
 
-  async handleSearchClick() {
+  // type ButtonEvent = React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+
+  async handleSearchClick(e: ButtonEvent) {
+    e.preventDefault();
     const { search } = this.state;
     localStorage.setItem('sw-0-search', this.state.search.trim());
     this.setState({
@@ -45,7 +53,6 @@ export default class MainBox extends Component<object, MainBoxState> {
 
     this.setState({ starhips });
     this.setState({ isLoading: false });
-    console.log('>>>>>>>', starhips);
   }
 
   render() {

@@ -15,7 +15,7 @@ export default class SearchMenu extends Component<SearchMenuProps, Nothing> {
     const { onClick, onChange, search } = this.props;
     return (
       <>
-        <div className="search-menu">
+        <form className="search-menu">
           <label htmlFor="search-input">Поиск:</label>
           <input
             className="search-input"
@@ -24,10 +24,10 @@ export default class SearchMenu extends Component<SearchMenuProps, Nothing> {
             onChange={onChange}
             value={search}
           />
-          <button type="button" onClick={onClick}>
+          <button type="submit" onClick={onClick}>
             Поиск
           </button>
-        </div>
+        </form>
         <div className="tip">
           To check the search feature, you can try, for example, entering the
           combination “con” or “al”
