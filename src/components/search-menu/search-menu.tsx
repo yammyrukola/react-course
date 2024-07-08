@@ -14,19 +14,25 @@ export default class SearchMenu extends Component<SearchMenuProps, Nothing> {
   render() {
     const { onClick, onChange, search } = this.props;
     return (
-      <div className="search-menu">
-        <label htmlFor="search-input">Поиск:</label>
-        <input
-          className="search-input"
-          id="search-input"
-          type="text"
-          onChange={onChange}
-          value={search}
-        />
-        <button type="button" onClick={onClick}>
-          Поиск
-        </button>
-      </div>
+      <>
+        <div className="search-menu">
+          <label htmlFor="search-input">Поиск:</label>
+          <input
+            className="search-input"
+            id="search-input"
+            type="text"
+            onChange={onChange}
+            value={search}
+          />
+          <button type="button" onClick={onClick}>
+            Поиск
+          </button>
+        </div>
+        <div className="tip">
+          To check the search feature, you can try, for example, entering the
+          combination “con” or “al”
+        </div>
+      </>
     );
   }
 }

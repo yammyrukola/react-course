@@ -1,7 +1,7 @@
 import { ChangeEvent, Component } from 'react';
 import { Nothing, Starship } from '../../types/types';
 import SearchMenu from '../search-menu/search-menu';
-import { fetchAllStarships } from '../../api/api';
+import { fetchAllStarships, fetchSearchedStarships } from '../../api/api';
 import StarshipList from '../starship-list/StarhipList';
 import classNames from 'classnames';
 import Spinner from '../spinner/spinner';
@@ -29,14 +29,23 @@ export default class MainBox extends Component<object, MainBoxState> {
   }
 
   async handleSearchClick() {
+    const { search } = this.state;
     localStorage.setItem('sw-0-search', this.state.search.trim());
     this.setState({
       isLoading: true,
     });
-    const starhispRow = await fetchAllStarships();
-    console.log('>>>>>>>', starhispRow);
-    this.setState({ starhips: starhispRow });
+
+    let starhips: Starship[] = [];
+
+    if (search) {
+      starhips = await fetchSearchedStarships(encodeURIComponent(search));
+    } else {
+      starhips = await fetchAllStarships();
+    }
+
+    this.setState({ starhips });
     this.setState({ isLoading: false });
+    console.log('>>>>>>>', starhips);
   }
 
   render() {
