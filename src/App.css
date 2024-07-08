@@ -84,6 +84,9 @@
   padding: 6px;
   margin-bottom: 10px;
   align-self: stretch;
+  opacity: 0.8;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 0px rgba(128, 128, 128, 0.6);
 }
 
 .item p {
