@@ -1,8 +1,17 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 #root {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 3rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .logo {
@@ -91,4 +100,16 @@
 
 .field-text {
   font-weight: 600;
+}
+
+.container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.search-content-spinner {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
