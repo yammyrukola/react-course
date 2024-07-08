@@ -16,7 +16,7 @@ export default class StarshipList extends Component<StarhipListProps, Nothing> {
     return (
       <>
         {starhips && (
-          <div>
+          <div className="list">
             {starhips.map((ship) => (
               <StarhipItem key={ship.name} ship={ship} />
             ))}
