@@ -1,14 +1,10 @@
 import { ChangeEvent, Component } from 'react';
-import { Nothing, Starship } from '../../types/types';
+import { ButtonEvent, Nothing, Starship } from '../../types/types';
 import SearchMenu from '../search-menu/search-menu';
 import { fetchAllStarships, fetchSearchedStarships } from '../../api/api';
 import StarshipList from '../starship-list/StarhipList';
 import classNames from 'classnames';
 import Spinner from '../spinner/spinner';
-
-type ButtonEvent =
-  | React.MouseEvent<HTMLButtonElement>
-  | React.KeyboardEvent<HTMLButtonElement>;
 
 interface MainBoxState {
   starhips: Starship[];
@@ -33,8 +29,6 @@ export default class MainBox extends Component<object, MainBoxState> {
     this.setState({ search });
   }
 
-  // type ButtonEvent = React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
-
   async handleSearchClick(e: ButtonEvent) {
     e.preventDefault();
     const { search } = this.state;
@@ -57,7 +51,9 @@ export default class MainBox extends Component<object, MainBoxState> {
 
   render() {
     const { search, starhips, isLoading } = this.state;
-    const contentClass = classNames({ ['search-content-spinner']: isLoading });
+    const contentClass = classNames('search-content', {
+      ['search-content-spinner']: isLoading,
+    });
     return (
       <div className="container">
         <SearchMenu

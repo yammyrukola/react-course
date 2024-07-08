@@ -1,8 +1,8 @@
 import { ChangeEvent, Component } from 'react';
-import { Nothing } from '../../types/types';
+import { ButtonEvent, Nothing } from '../../types/types';
 
 interface SearchMenuProps {
-  onClick: () => void;
+  onClick: (e: ButtonEvent) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   search: string;
 }
@@ -30,7 +30,7 @@ export default class SearchMenu extends Component<SearchMenuProps, Nothing> {
         </form>
         <div className="tip">
           To check the search feature, you can try, for example, entering the
-          combination “con” or “al”
+          combination “con” or “al”.<br></br> Search occurs by model field.
         </div>
       </>
     );

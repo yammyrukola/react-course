@@ -115,6 +115,18 @@
   flex-grow: 1;
   flex-direction: column;
 }
+.btn-test {
+  align-self: center;
+  background-color: lightgreen;
+  opacity: 0.9;
+}
+
+.search-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .search-content-spinner {
   flex-grow: 1;
   display: flex;

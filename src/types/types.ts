@@ -1,5 +1,9 @@
 export type Nothing = Record<string, never>;
 
+export type ButtonEvent =
+  | React.MouseEvent<HTMLButtonElement>
+  | React.KeyboardEvent<HTMLButtonElement>;
+
 export type Starship = {
   MGLT: string;
   cargo_capacity: string;
